@@ -1,0 +1,20 @@
+body{
+    font-family: 'Open Sans',sans-serif;
+    background-color: black;
+}
+#container{
+    width: 700px;
+    height: 550px;
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(wpr.jpg);
+    margin: 20px auto
+}
+#calculator{
+    width:320px;
+    height: 420px;
+    background-color: burlywood;
+    margin: 0 auto;
+    top:20px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 darkgray;
+}

@@ -15,7 +15,9 @@ function getHistory(){    //to get value stored in history panel
  }
  }
  function getFormattedNumber(num){   //to convert the number into a comma separated format
-     var n=Number(num);
+    if(num=="-")
+    return ""; 
+    var n=Number(num);
      var newN=n.toLocaleString("en"); 
      return newN;
  }

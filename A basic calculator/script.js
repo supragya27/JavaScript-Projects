@@ -25,13 +25,48 @@ function getHistory(){    //to get value stored in history panel
  var operator = document.getElementsByClassName("operator");
  for(var i=0;i<operator.length;i++){       //adding event listners for operator buttons
      operator[i].addEventListener('click',function(){
-         alert("The operator clicked: "+this.id);
+         if(this.id=="clear"){
+             printHistory("");
+             printOutput("");
+         }
+         else if(this.id=="backspace"){
+             var output=reverseNumberFormat(getOutput()).toString();
+             if(output)
+             {
+                 output=output.substr(0,output.length-1);
+                 printOutput(output);
+             }
+            }
+             else{
+                 var output=getOutput();
+                 var history=getHistory();
+                 if(output!="")
+                 {
+                     output=reverseNumberFormat(output);
+                     history+=output;
+                     if(this.id=="="){
+                         var result=eval(history);
+                         printOutput(result);
+                         printHistory("");
+                     }
+                     else{
+                         history+=this.id;
+                         printHistory(history);
+                         printOutput("");
+                     }
+                 }
+             
+                }
      })
  }
  var number = document.getElementsByClassName("number");
  for(var i=0;i<number.length;i++){         //adding event listners for number buttons
      number[i].addEventListener('click',function(){
-         alert("The number clicked: "+this.id);
+         var output=reverseNumberFormat(getOutput());
+         if(output!=NaN){          //output is a number
+            output+=this.id;
+            printOutput(output);
+         }
      })
  }
  

@@ -42,9 +42,14 @@ function getHistory(){    //to get value stored in history panel
              else{
                  var output=getOutput();
                  var history=getHistory();
-                 if(output!="")
+                 if(output==""&&history!="")
                  {
-                     output=reverseNumberFormat(output);
+                     if(isNaN(history[history.length-1]))
+                     history=history.substr(0,history.length-1)
+                 }
+                 if(output!=""||history!="")
+                 {
+                     output=output==""?output:reverseNumberFormat(output);
                      history+=output;
                      if(this.id=="="){
                          var result=eval(history);

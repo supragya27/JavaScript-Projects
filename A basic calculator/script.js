@@ -21,8 +21,17 @@ function getHistory(){    //to get value stored in history panel
  }
  function reverseNumberFormat(num){   //to convert the number to non-comma separated format
      return Number(num.replace(/,/g,''));
- 
  }
- 
- 
+ var operator = document.getElementsByClassName("operator");
+ for(var i=0;i<operator.length;i++){       //adding event listners for operator buttons
+     operator[i].addEventListener('click',function(){
+         alert("The operator clicked: "+this.id);
+     })
+ }
+ var number = document.getElementsByClassName("number");
+ for(var i=0;i<number.length;i++){         //adding event listners for number buttons
+     number[i].addEventListener('click',function(){
+         alert("The number clicked: "+this.id);
+     })
+ }
  
